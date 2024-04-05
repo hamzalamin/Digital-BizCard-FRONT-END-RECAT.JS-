@@ -7,8 +7,8 @@ const AddCardForm = () => {
     const [name, setName] = useState('');
     const [company, setCompany] = useState('');
     const [title, setTitle] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [phone, setPhone] = useState('');
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -22,24 +22,18 @@ const AddCardForm = () => {
         setTitle(event.target.value);
     }
 
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
-    }
-
-    const handlePhoneChange = (event) => {
-        setPhone(event.target.value);
-    }
     const handleSubmit = async (event) => {
       event.preventDefault();
       const token = Cookies.get('token');
-  
+      console.log(token);
+        
       try {
-          const response = await axios.post('http://localhost/api/business_cards', {
+          const response = await axios.post('http://localhost/api/createCard', {
               name: name,
               company: company,
               title: title,
-              email: email,
-              phone: phone
+            //   email: email,
+            //   phone: phone
           }, {
               headers: {
                   Authorization: `Bearer ${token}`
@@ -90,28 +84,6 @@ const AddCardForm = () => {
                         name="title" 
                         value={title} 
                         onChange={handleTitleChange} 
-                        required 
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        value={email} 
-                        onChange={handleEmailChange} 
-                        required 
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="phone">Phone</label>
-                    <input 
-                        type="tel" 
-                        id="phone" 
-                        name="phone" 
-                        value={phone} 
-                        onChange={handlePhoneChange} 
                         required 
                     />
                 </div>

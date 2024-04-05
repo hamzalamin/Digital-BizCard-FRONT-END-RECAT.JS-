@@ -30,7 +30,7 @@ function UpdateCard() {
     const { id } = cardData; // Extract card ID from cardData
 
     // Send request to update card data
-    axios.post(`http://localhost/api/update_business_cards/${id}`, formData, {
+    axios.post(`http://localhost/api/updateCard/${id}`, formData, {
       headers: {
         Authorization: `Bearer ${token}`
       }

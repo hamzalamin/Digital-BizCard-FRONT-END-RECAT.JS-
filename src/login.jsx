@@ -27,7 +27,7 @@ const Login = () => {
                 password: password
             });
             
-            const token = response.data.access_token;
+            const token = response.data.token;
             
             Cookies.set("token", token, { expires: 7 });       
               console.log('Login successful!', token);

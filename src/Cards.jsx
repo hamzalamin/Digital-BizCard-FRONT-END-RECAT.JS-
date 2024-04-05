@@ -11,7 +11,7 @@ function Cards() {
   useEffect(() => {
     const fetchCards = () => {
       const token = Cookies.get('token');
-      axios.get('http://localhost/api/getCards', {
+      axios.get('http://localhost/api/allCards', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -35,7 +35,7 @@ function Cards() {
 
   const handleDelete = (cardId) => {
     const token = Cookies.get('token');
-    axios.delete(`http://localhost/api/delete_card/${cardId}`, {
+    axios.delete(`http://localhost/api/deleteCard/${cardId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
